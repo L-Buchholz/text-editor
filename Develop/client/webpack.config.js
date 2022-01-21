@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
-// IF NEEDED: const WorkboxPlugin = require("workbox-webpack-plugin");
+const { GenerateSW } = require("workbox-webpack-plugin");
 const path = require("path");
 const { InjectManifest } = require("workbox-webpack-plugin");
 
@@ -27,7 +27,7 @@ module.exports = () => {
       new WebpackPwaManifest({
         swSrc: "./src-sw.js",
         name: "Just Another Text Editor",
-        short_name: "JATE",
+        short_name: "J.A.T.E",
         description:
           "A simple text editor that can be installed and used offline!",
       }),
@@ -35,37 +35,22 @@ module.exports = () => {
       new InjectManifest({
         swSrc: "./src-sw.js",
       }),
-
-      /*
-      // IF NEEDED:
       // Workbox Plugin (Generate SW)
-      new WorkboxPlugin.GenerateSW({
-        // EDIT BELOW CODE AS NEEDED (from previous activity)
-        // Do not precache images
-        exclude: [/\.(?:png|jpg|jpeg|svg)$/],
-
+      new GenerateSW({
         // Define runtime caching rules.
         runtimeCaching: [
+          //WebpackGenerateSW.runtimeCaching.0 must have required property 'urlPattern
           {
-            // Match any request that ends with .png, .jpg, .jpeg or .svg.
-            urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
-
-            // Apply a cache-first strategy.
+            // Apply a cache-first strategy
+            urlPattern: /.*/,
             handler: "CacheFirst",
-
             options: {
-              // Use a custom cache name.
-              cacheName: "images",
-
-              // Only cache 2 images.
-              expiration: {
-                maxEntries: 2,
-              },
+              // Uses a custom cache name
+              cacheName: "contentCache",
             },
           },
         ],
       }),
-      */
     ],
 
     // DONE: Add CSS loaders and babel to webpack.
