@@ -1,7 +1,5 @@
-// **TO-DO: offlineFallback
 const { offlineFallback, warmStrategyCache } = require("workbox-recipes");
 const { CacheFirst } = require("workbox-strategies");
-// CALLED -- EXPAND ON
 const { registerRoute } = require("workbox-routing");
 const { CacheableResponsePlugin } = require("workbox-cacheable-response");
 const { ExpirationPlugin } = require("workbox-expiration");
@@ -28,8 +26,10 @@ warmStrategyCache({
   strategy: pageCache,
 });
 
-// TODO: Implement asset caching
-//OG code: registerRoute(({ request }) => request.mode === "navigate", pageCache);
-registerRoute(({ request }) => (request.mode === "navigate", pageCache));
+// TODO: Implement asset caching -- DID NOT AMEND ANY OF THIS CODE
+registerRoute(({ request }) => request.mode === "navigate", pageCache);
+
+// Calling offlineFallback (relies on page cache route)
+offlineFallback();
 
 registerRoute();
