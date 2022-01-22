@@ -31,7 +31,6 @@ export const getDb = async () => {
   const store = text.objectStore("jate");
   const request = store.get("content");
   const result = await request;
-  console.log("result.value", result);
   return result;
 };
 
