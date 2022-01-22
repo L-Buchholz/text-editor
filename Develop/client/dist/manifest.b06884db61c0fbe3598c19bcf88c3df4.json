@@ -1,9 +1,0 @@
-{
-  "name": "Just Another Text Editor",
-  "short_name": "J.A.T.E",
-  "orientation": "portrait",
-  "display": "standalone",
-  "start_url": ".",
-  "swSrc": "./dist/src-sw.js",
-  "description": "A simple text editor that can be installed and used offline!"
-}

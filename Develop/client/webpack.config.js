@@ -25,7 +25,6 @@ module.exports = () => {
 
       //Webpack Manifest
       new WebpackPwaManifest({
-        swSrc: "./src-sw.js",
         name: "Just Another Text Editor",
         short_name: "J.A.T.E",
         description:
@@ -34,22 +33,6 @@ module.exports = () => {
       //Inject Manifest
       new InjectManifest({
         swSrc: "./src-sw.js",
-      }),
-      // Workbox Plugin (Generate SW)
-      new GenerateSW({
-        // Define runtime caching rules.
-        runtimeCaching: [
-          //WebpackGenerateSW.runtimeCaching.0 must have required property 'urlPattern
-          {
-            // Apply a cache-first strategy
-            urlPattern: /.*/,
-            handler: "CacheFirst",
-            options: {
-              // Uses a custom cache name
-              cacheName: "contentCache",
-            },
-          },
-        ],
       }),
     ],
 
