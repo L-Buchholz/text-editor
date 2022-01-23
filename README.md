@@ -21,8 +21,8 @@ Additionally, the application has been deployed to Heroku and the Javascript inc
 
 The following is a screenshot of the Heroku interface, highlighting the application's appearance and functionality:
 
-![Heroku screenshot of the text editor app. This image includes: [DESCRIPTION]]](./LINKHERE, inc. /images/ folder?)
+![Heroku screenshot of the text editor app. This image includes: A screenshot of the text editor after it has been deployed to a desktop using the "Install" icon. The image also highlights the editor's functionality with sample text.](./screenshot.png)
 
 ## Link to deployed application
 
-The application has been deployed to Heroku here: [APPLICATION_LINK]
+The application has been deployed to Heroku here: https://text-editor-heroku.herokuapp.com/
