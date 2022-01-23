@@ -9,26 +9,26 @@ module.exports = () => {
   return {
     mode: "development",
     entry: {
-      main: "./src/js/index.js",
-      install: "./src/js/install.js",
+      main: "./client/src/js/index.js",
+      install: "./client/src/js/install.js",
     },
     output: {
       filename: "[name].bundle.js",
-      path: path.resolve(__dirname, "dist"),
+      path: path.resolve(__dirname, "client", "dist"),
     },
     plugins: [
       //HTML Webpack Plugin
       new HtmlWebpackPlugin({
-        template: "./index.html",
+        template: "client/index.html",
         title: "Just Another Text Editor",
       }),
       //Inject Manifest
       new InjectManifest({
-        swSrc: "./src-sw.js",
+        swSrc: "./client/src-sw.js",
       }),
       //Copy Webpack Plugin
       new CopyPlugin({
-        patterns: [{ from: "img", to: "assets" }],
+        patterns: [{ from: "client/img", to: "assets" }],
       }),
       //Webpack Manifest
       new WebpackPwaManifest({
@@ -38,7 +38,7 @@ module.exports = () => {
         display: "standalone",
         icons: [
           {
-            src: "./img/icons/icon_96x96.png",
+            src: "client/img/icons/icon_96x96.png",
             sizes: "96x96",
             type: "image/png",
           },
