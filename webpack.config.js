@@ -42,6 +42,11 @@ module.exports = () => {
             sizes: "96x96",
             type: "image/png",
           },
+          {
+            src: "client/img/icons/icon_144x144.png",
+            sizes: "144x144",
+            type: "image/png",
+          },
         ],
         name: "Just Another Text Editor",
         short_name: "J.A.T.E",
